@@ -3,8 +3,7 @@ import { IsNotEmpty } from 'class-validator';
 import { FileCategory, FileType } from '../interfaces/files.interface';
 
 export class FilesDto {
-  @ApiProperty({ type: 'array', items: { type: 'string', format: 'binary' } })
-  @IsNotEmpty()
+  @ApiProperty({ type: 'string', format: 'binary' })
   files: any[];
 
   @ApiProperty()

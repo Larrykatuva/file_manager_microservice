@@ -14,12 +14,19 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, SwaggerConfig);
   SwaggerModule.setup('api', app, document);
 
+  app.useGlobalPipes();
   /**
    * Enabling validation pipes globally
    */
   app.useGlobalPipes(new ValidationPipe());
 
+  app.useGlobalInterceptors();
+
   // await app.startAllMicroservices();
+  /**
+   * Enable cors
+   */
+  app.enableCors();
 
   await app.listen(configService.get<string>('PORT'));
 }

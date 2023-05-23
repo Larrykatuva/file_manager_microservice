@@ -46,6 +46,9 @@ export class File {
   @Column()
   refName: string;
 
+  @Column({ type: 'text', nullable: true })
+  metadata: string;
+
   @CreateDateColumn()
   createdAt: Date;
 
